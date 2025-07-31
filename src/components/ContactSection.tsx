@@ -15,9 +15,9 @@ export default function ContactSection() {
                 <span className="text-2xl">📞</span>
               </div>
               <h3 className="text-lg font-semibold mb-2 text-slate-800">Llámanos</h3>
-              <p className="text-gray-700 mb-4 font-medium">+56 9 9575 7730</p>
+              <p className="text-gray-700 mb-4 font-medium">+56 9 8228 7133</p>
               <a 
-                href="tel:+56995757730"
+                href="tel:+56982287133"
                 className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
               >
                 Llamar ahora
@@ -31,7 +31,7 @@ export default function ContactSection() {
               <h3 className="text-lg font-semibold mb-2 text-slate-800">WhatsApp</h3>
               <p className="text-gray-700 mb-4 font-medium">Respuesta inmediata</p>
               <a 
-                href="https://wa.me/56995757730"
+                href="https://wa.me/56982287133"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
@@ -109,7 +109,7 @@ export default function ContactSection() {
                     Solicitar cotización
                   </button>
                   <a 
-                    href="https://wa.me/56995757730"
+                    href="https://wa.me/56982287133"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-8 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors text-center"
