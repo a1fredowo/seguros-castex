@@ -1,4 +1,79 @@
+'use client'
+
+import { useState } from 'react'
+import toast from 'react-hot-toast'
+
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    insuranceType: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      console.log('Enviando datos:', formData)
+      
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      console.log('Response status:', response.status)
+      
+      if (response.ok) {
+        const result = await response.json()
+        console.log('Respuesta exitosa:', result)
+        
+        toast.success('¡Cotización enviada correctamente! Te contactaremos pronto.', {
+          icon: '✅',
+          duration: 5000,
+        })
+
+        // Limpiar formulario
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          insuranceType: '',
+          message: ''
+        })
+      } else {
+        const errorData = await response.json()
+        console.error('Error del servidor:', errorData)
+        
+        toast.error(`Error: ${errorData.details || 'Error del servidor'}`, {
+          icon: '❌',
+        })
+      }
+
+    } catch (error) {
+      console.error('Error de red o parsing:', error)
+      toast.error('Error de conexión. Verifica tu internet e inténtalo nuevamente.', {
+        icon: '❌',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <section id="contacto" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -18,7 +93,7 @@ export default function ContactSection() {
               <p className="text-gray-700 mb-4 font-medium">+56 9 8228 7133</p>
               <a 
                 href="tel:+56982287133"
-                className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
+                className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer"
               >
                 Llamar ahora
               </a>
@@ -34,7 +109,7 @@ export default function ContactSection() {
                 href="https://wa.me/56982287133"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
+                className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer"
               >
                 Escribir
               </a>
@@ -48,7 +123,7 @@ export default function ContactSection() {
               <p className="text-gray-700 mb-4 font-medium">contacto@seguroscastex.cl</p>
               <a 
                 href="mailto:contacto@seguroscastex.cl"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer"
               >
                 Escribir
               </a>
@@ -63,16 +138,22 @@ export default function ContactSection() {
                 <p className="text-gray-700">Completa el formulario y te contactaremos en 24 horas</p>
               </div>
               
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <input 
-                    type="text" 
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all outline-none text-slate-800 placeholder-gray-500" 
                     placeholder="Nombre completo"
                     required
                   />
                   <input 
-                    type="tel" 
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all outline-none text-slate-800 placeholder-gray-500" 
                     placeholder="Teléfono"
                     required
@@ -80,39 +161,62 @@ export default function ContactSection() {
                 </div>
                 
                 <input 
-                  type="email" 
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all outline-none text-slate-800 placeholder-gray-500" 
                   placeholder="Correo electrónico"
                   required
                 />
                 
-                <select className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all outline-none bg-white text-slate-800">
-                  <option value="" className="text-gray-500">¿Qué seguro necesitas?</option>
-                  <option value="auto" className="text-slate-800">🚗 Auto</option>
-                  <option value="hogar" className="text-slate-800">🏠 Hogar</option>
-                  <option value="salud" className="text-slate-800">❤️ Salud</option>
-                  <option value="empresa" className="text-slate-800">🏢 Empresa</option>
-                  <option value="otro" className="text-slate-800">📋 Otro</option>
+                <select 
+                  name="insuranceType"
+                  value={formData.insuranceType}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all outline-none bg-white text-slate-800"
+                  required
+                >
+                  <option value="">¿Qué seguro necesitas?</option>
+                  <option value="auto">🚗 Auto</option>
+                  <option value="hogar">🏠 Hogar</option>
+                  <option value="salud">❤️ Salud</option>
+                  <option value="empresa">🏢 Empresa</option>
+                  <option value="otro">📋 Otro</option>
                 </select>
                 
                 <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={3} 
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 resize-none transition-all outline-none text-slate-800 placeholder-gray-500" 
                   placeholder="Cuéntanos más detalles (opcional)"
-                ></textarea>
+                />
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button 
-                    type="submit" 
-                    className="flex-1 bg-slate-800 hover:bg-slate-900 text-white py-3 rounded-lg font-semibold transition-colors"
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex-1 bg-slate-800 hover:bg-slate-900 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition-colors cursor-pointer flex items-center justify-center"
                   >
-                    Solicitar cotización
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Enviando...
+                      </>
+                    ) : (
+                      'Solicitar cotización'
+                    )}
                   </button>
                   <a 
                     href="https://wa.me/56982287133"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors text-center"
+                    className="px-8 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors text-center cursor-pointer"
                   >
                     WhatsApp
                   </a>
