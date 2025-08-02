@@ -53,7 +53,7 @@ export default function Header() {
         <a 
           href="#contacto"
           onClick={(e) => handleSmoothScroll(e, 'contacto')}
-          className="bg-white text-slate-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+          className="bg-white text-slate-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors text-center"
         >
           COTIZA TU SEGURO
         </a>

@@ -3,7 +3,7 @@
 export default function WhyChooseUs() {
   const reasons = [
     "Asesoría personalizada e independiente",
-    "Representamos tus intereses, no el de las aseguradoras",
+    "Representamos tus intereses",
     "Atención rápida y clara en caso de siniestros", 
     "Gestión integral de tus pólizas y renovaciones",
     "Cobertura para personas, empresas y activos estratégicos"

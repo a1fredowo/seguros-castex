@@ -43,9 +43,25 @@ export default function HeroSection() {
           <div className="hidden lg:block">
             <div className="relative">
               <div className="w-80 h-80 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full opacity-20 absolute -top-10 -right-10"></div>
-              <div className="relative z-10 text-center">
-                <div className="text-8xl mb-4">🛡️</div>
-                <p className="text-lg">Tu tranquilidad es nuestra prioridad</p>
+              <div className="relative z-10">
+                <div className="grid grid-cols-2 gap-6 text-center">
+                  <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-teal-300">500+</div>
+                    <p className="text-sm">Clientes satisfechos</p>
+                  </div>
+                  <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-teal-300">24/7</div>
+                    <p className="text-sm">Atención disponible</p>
+                  </div>
+                  <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-teal-300">20+</div>
+                    <p className="text-sm">Años de experiencia</p>
+                  </div>
+                  <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <div className="text-3xl font-bold text-teal-300">100%</div>
+                    <p className="text-sm">Compromiso</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

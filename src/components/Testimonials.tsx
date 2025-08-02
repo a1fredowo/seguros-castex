@@ -80,7 +80,7 @@ export default function Testimonials() {
         </div>
 
         {/* Grid de Testimonios */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 

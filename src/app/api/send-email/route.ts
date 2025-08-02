@@ -3,7 +3,25 @@ import * as nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, phone, insuranceType, message } = await request.json()
+    const { name, phone, email, insuranceType, message, captcha } = await request.json()
+
+    // Verificar reCAPTCHA
+    const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`,
+    })
+
+    const recaptchaData = await recaptchaResponse.json()
+
+    if (!recaptchaData.success) {
+      return NextResponse.json(
+        { details: 'Verificación de seguridad fallida' },
+        { status: 400 }
+      )
+    }
 
     console.log('Datos recibidos:', { name, email, phone, insuranceType, message })
     console.log('Variables de entorno:', {

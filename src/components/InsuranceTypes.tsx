@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function InsuranceTypes() {
   return (
     <section id="nuestros-seguros" className="py-20 bg-gray-50">
@@ -6,7 +8,7 @@ export default function InsuranceTypes() {
         
         {/* Seguros para Personas */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-8 text-slate-800">Personas</h3>
+          <h3 className="text-2xl font-bold mb-8 text-slate-800 text-center md:text-left">Personas</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
@@ -42,7 +44,7 @@ export default function InsuranceTypes() {
 
         {/* Seguros para Empresas */}
         <div>
-          <h3 className="text-2xl font-bold mb-8 text-slate-800">Empresas</h3>
+          <h3 className="text-2xl font-bold mb-8 text-slate-800 text-center md:text-left">Empresas</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {

@@ -30,7 +30,7 @@ export default function RootLayout({
               <div>
                 <h4 className="font-semibold mb-4">Contacto</h4>
                 <p className="text-gray-400">📞 +56 9 8228 7133</p>
-                <p className="text-gray-400">📧 contacto@seguroscastex.cl</p>
+                <p className="text-gray-400">📧 contactocastex@gmail.com</p>
               </div>
               <div>
                 <h4 className="font-semibold mb-4">Síguenos</h4>

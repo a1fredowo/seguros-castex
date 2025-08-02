@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Seguros Castex 🛡️
 
-## Getting Started
+Una página web moderna y profesional para una empresa de seguros, desarrollada con Next.js, React y Tailwind CSS.
 
-First, run the development server:
+## 📋 Descripción
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Seguros Castex es una aplicación web diseñada para una empresa de seguros que busca brindar una experiencia digital moderna y accesible a sus clientes. La página incluye información completa sobre los servicios de seguros, testimonios de clientes, secciones informativas y un sistema de contacto integrado.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tecnologías Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **[Next.js 15](https://nextjs.org/)** - Framework de React con App Router
+- **[React 19](https://react.dev/)** - Biblioteca de JavaScript para interfaces de usuario
+- **[TypeScript](https://www.typescriptlang.org/)** - Superset tipado de JavaScript
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Framework CSS utility-first
+- **[Nodemailer](https://nodemailer.com/)** - Biblioteca para envío de emails
+- **[React Hot Toast](https://react-hot-toast.com/)** - Notificaciones elegantes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Características
 
-## Learn More
+### 🏠 Páginas y Secciones
+- **Hero Section**: Presentación principal con call-to-action
+- **Por Qué Elegirnos**: Destacados y ventajas competitivas
+- **Tipos de Seguros**: Catálogo completo de productos
+- **Testimonios**: Reseñas y experiencias de clientes
+- **Acerca de Nosotros**: Historia y valores de la empresa
+- **Contacto**: Formulario de contacto y información
 
-To learn more about Next.js, take a look at the following resources:
+### 🔧 Funcionalidades Técnicas
+- ✅ Diseño responsive para todos los dispositivos
+- ✅ Navegación suave entre secciones
+- ✅ Formulario de contacto funcional con envío de emails
+- ✅ Notificaciones en tiempo real
+- ✅ Optimización SEO
+- ✅ Tipado estático con TypeScript
+- ✅ Lint y formateo de código
+- ✅ Turbopack para desarrollo rápido
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Licencia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Este proyecto es privado y pertenece a Seguros Castex.
 
-## Deploy on Vercel
+## 📞 Contacto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para consultas sobre el proyecto:
+- **Email**: contacto@seguroscastex.com
+- **Desarrollador**: [@a1fredowo](https://github.com/a1fredowo)
