@@ -35,10 +35,16 @@ export default function Testimonials() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000) // Cambia cada 5 segundos
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [testimonials.length])
+
+  const handleTestimonialChange = (index: number) => {
+    if (index !== currentTestimonial) {
+      setCurrentTestimonial(index)
+    }
+  }
 
   const renderStars = (rating: number) => {
     return [...Array(rating)].map((_, i) => (
@@ -53,16 +59,28 @@ export default function Testimonials() {
         
         {/* Testimonio Principal */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="bg-gradient-to-r from-teal-50 to-blue-50 p-8 rounded-lg shadow-lg text-center">
-            <div className="mb-4">
-              {renderStars(testimonials[currentTestimonial].rating)}
+          <div className="overflow-hidden rounded-lg shadow-lg">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div 
+                  key={index}
+                  className="w-full flex-shrink-0 bg-gradient-to-r from-teal-50 to-blue-50 p-8 text-center"
+                >
+                  <div className="mb-4">
+                    {renderStars(testimonial.rating)}
+                  </div>
+                  <p className="text-xl italic text-gray-700 mb-6">
+                    &quot;{testimonial.text}&quot;
+                  </p>
+                  <p className="font-semibold text-slate-800">
+                    – {testimonial.author}, {testimonial.role}
+                  </p>
+                </div>
+              ))}
             </div>
-            <p className="text-xl italic text-gray-700 mb-6">
-              &quot;{testimonials[currentTestimonial].text}&quot;
-            </p>
-            <p className="font-semibold text-slate-800">
-              – {testimonials[currentTestimonial].author}, {testimonials[currentTestimonial].role}
-            </p>
           </div>
           
           {/* Indicadores */}
