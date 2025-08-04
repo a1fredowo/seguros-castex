@@ -42,5 +42,5 @@ Este proyecto es privado y pertenece a Seguros Castex.
 ## 📞 Contacto
 
 Para consultas sobre el proyecto:
-- **Email**: contacto@seguroscastex.com
+- **Email**: contactocastex@gmail.com
 - **Desarrollador**: [@a1fredowo](https://github.com/a1fredowo)
