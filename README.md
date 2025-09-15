@@ -8,12 +8,11 @@ Seguros Castex es una aplicación web diseñada para una empresa de seguros que 
 
 ## 🚀 Tecnologías Utilizadas
 
-- **[Next.js 15](https://nextjs.org/)** - Framework de React con App Router
-- **[React 19](https://react.dev/)** - Biblioteca de JavaScript para interfaces de usuario
+- **[Next.js](https://nextjs.org/)** - Framework de React con App Router
+- **[React](https://react.dev/)** - Biblioteca de JavaScript para interfaces de usuario
 - **[TypeScript](https://www.typescriptlang.org/)** - Superset tipado de JavaScript
-- **[Tailwind CSS v4](https://tailwindcss.com/)** - Framework CSS utility-first
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utility-first
 - **[Nodemailer](https://nodemailer.com/)** - Biblioteca para envío de emails
-- **[React Hot Toast](https://react-hot-toast.com/)** - Notificaciones elegantes
 
 ## ✨ Características
 
@@ -27,17 +26,11 @@ Seguros Castex es una aplicación web diseñada para una empresa de seguros que 
 
 ### 🔧 Funcionalidades Técnicas
 - ✅ Diseño responsive para todos los dispositivos
-- ✅ Navegación suave entre secciones
 - ✅ Formulario de contacto funcional con envío de emails
 - ✅ Notificaciones en tiempo real
 - ✅ Optimización SEO
 - ✅ Tipado estático con TypeScript
 - ✅ Lint y formateo de código
-- ✅ Turbopack para desarrollo rápido
-
-## 📄 Licencia
-
-Este proyecto es privado y pertenece a Seguros Castex.
 
 ## 📞 Contacto
 
