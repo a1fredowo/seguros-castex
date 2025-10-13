@@ -23,7 +23,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-slate-800 text-white">
+    <header className="bg-slate-800 text-white fixed top-0 left-0 right-0 z-50">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold">
           <Link href="/" className="hover:text-gray-300 transition-colors">
